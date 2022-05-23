@@ -1,5 +1,6 @@
 package com.example.restaurant.entity;
 
+import com.example.restaurant.model.enums.FoodType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
@@ -13,8 +14,9 @@ public class Menu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "food_type")
-    private String foodType;
+    private FoodType foodType;
 
     @Column(name = "food_name")
     private String foodName;

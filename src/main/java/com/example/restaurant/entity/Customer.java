@@ -1,6 +1,5 @@
 package com.example.restaurant.entity;
 
-import com.example.restaurant.model.enums.CustomerStatus;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,9 +23,8 @@ public class Customer {
     @CreationTimestamp
     private LocalDateTime createdAt;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "customer_status")
-    private CustomerStatus customerStatus;
+    @Column(name = "is_active")
+    private Boolean isActive;
 
     @ManyToOne
     @JsonIgnore
