@@ -19,16 +19,13 @@ public class TablesService {
     private final TablesRepo tablesRepo;
     private final ModelMapper modelMapper;
 
-    public List<Tables> getAll(){
-        return tablesRepo.findAll();
-    }
 
-//    public List<TablesDTO> getAll() {
-//        return tablesRepo.findAll()
-//                .stream()
-//                .map(tables -> modelMapper.map(tables,TablesDTO.class))
-//                .collect(Collectors.toList());
-//    }
+    public List<TablesDTO> getAll() {
+        return tablesRepo.findAll()
+                .stream()
+                .map(tables -> modelMapper.map(tables,TablesDTO.class))
+                .collect(Collectors.toList());
+    }
 
     public TablesDTO getById(Long id) {
         Tables tables = tablesRepo.findById(id).orElseThrow(() -> new NotFoundException(

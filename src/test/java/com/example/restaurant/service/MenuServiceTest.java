@@ -1,8 +1,10 @@
 package com.example.restaurant.service;
 
 import com.example.restaurant.entity.Menu;
+import com.example.restaurant.entity.Tables;
 import com.example.restaurant.exception.NotFoundException;
 import com.example.restaurant.model.dto.MenuDto;
+import com.example.restaurant.model.dto.TablesDTO;
 import com.example.restaurant.repository.MenuRepo;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -106,7 +108,7 @@ public class MenuServiceTest {
         menu.setId(1L);
 
         MenuDto menuDto = new MenuDto();
-        menu.setId(1L);
+        menuDto.setId(1L);
 
         when(modelMapper.map(menuDto, Menu.class)).thenReturn(menu);
         when(menuRepo.save(menu)).thenReturn(menu);

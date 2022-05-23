@@ -17,7 +17,7 @@ public class TablesController {
     private final TablesService tablesService;
 
     @GetMapping
-    public ResponseEntity<List<Tables>> findAll() {
+    public ResponseEntity<List<TablesDTO>> findAll() {
         return ResponseEntity.ok(tablesService.getAll());
     }
 
