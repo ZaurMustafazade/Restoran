@@ -3,12 +3,43 @@ spring:
     url: jdbc:postgresql://localhost:5432/Restaurant
     username: postgres
     password: 123456
+  tomcat:
+    max-wait: 20000
+    max-active: 50
+    max-idle: 20
+    min-idle: 15
   jpa:
     hibernate:
       ddl-auto: update
-    show-sql: true
-server:
-  port: 7788
+    properties:
+      properties.hibernate.temp.use_jdbc_metadata_defaults: false
+#      hibernate:
+#        dialect: org.hibernate.dialect.H2Dialect
+#        # dialect: org.hibernate.dialect.MySQL8Dialect
+#        format_sql: true
+#        id:
+#          new_generator_mappings: false
 
+
+  security:
+    jwt:
+      token:
+        secret-key: secret-key
+        expire-length: 300000 # 5 minutes duration by default: 5 minutes * 60 seconds * 1000 miliseconds
+
+  UserController:
+    signin: Authenticates user and returns its JWT token.
+    signup: Creates user and returns its JWT token
+    delete: Deletes specific user by username
+    search: Returns specific user by username
+    me: Returns current user's data
+
+
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
+
+server:
+  port: 8082
 
 
