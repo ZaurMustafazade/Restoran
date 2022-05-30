@@ -1,7 +1,5 @@
 package com.example.restaurant.controller;
 
-import com.example.restaurant.entity.Tables;
-import com.example.restaurant.model.dto.MenuDto;
 import com.example.restaurant.model.dto.TablesDTO;
 import com.example.restaurant.service.TablesService;
 import lombok.RequiredArgsConstructor;
