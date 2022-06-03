@@ -37,7 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         .antMatchers("/users/signin").permitAll()//
         .antMatchers("/users/signup").permitAll()//
         .antMatchers("/h2-console/**/**").permitAll()
-            .antMatchers("/menu").hasAuthority("ROLE_ADMIN")
+            .antMatchers("/menu").permitAll()
+//            .antMatchers("/menu").hasAuthority("ROLE_ADMIN")
+//            .antMatchers("/menu").hasAuthority("ROLE_WAITER")
         // Disallow everything else..
         .anyRequest().authenticated();
 
