@@ -49,22 +49,10 @@ public class MenuController {
         menuService.delete(id);
     }
 
-/*    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
-    @GetMapping("/{foodType}")
-    public ResponseEntity<List<MenuDto>> findByFoodType(@PathVariable("foodType")FoodType foodType){
-        return ResponseEntity.ok(menuService.findByFoodType(foodType));
-    }*/
-
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
-    @GetMapping("/{foodType}")
-    public ResponseEntity<List<Menu>> findAllByFoodType(@PathVariable("foodType")FoodType foodType){
+    @GetMapping("/enums/{foodType}")
+    public ResponseEntity<List<Menu>> findAllByFoodType(@RequestParam(name = "foodType") FoodType foodType){
         return ResponseEntity.ok(menuService.findAllByFootType(foodType));
     }
-
-//    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
-//    @GetMapping("/{foodType}")
-//    public ResponseEntity<MenuDto> findMenuByFoodType(@PathVariable("foodType")FoodType foodType) {
-//        return ResponseEntity.ok(menuService.findMenuByFoodType(foodType));
-//    }
 
 }
