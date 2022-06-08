@@ -1,40 +1,49 @@
 package com.example.restaurant.model.enums;
 
 public enum FoodType {
-    DRINK(1,"İçki","Drink"),
-    HOT_FOOD(2, "Isti yemekler","Hot food"),
-    SNACK(3,"Qəlyanaltı","Snack");
+    BURGERS,
+    BEVERAGES,
+    SNACKS_AND_SIDES,
+    SAUCES,
+    DESERTS_AND_SHAKES,
+    HOT_DRINKS;
 
-    private int code;
-    private String nameAz;
-    private String nameEn;
-
-    FoodType(int code, String nameAz, String nameEn) {
-        this.code = code;
-        this.nameAz = nameAz;
-        this.nameEn = nameEn;
-    }
-
-    public static Integer getCode(FoodType foodType) {
-        return foodType == null ? null : foodType.code;
-    }
-    public static FoodType lookup(Integer code) {
-        if (code == null) {
-            return null;
-        } else {
-           FoodType[] var1 = values();
-            int var2 = var1.length;
-
-            for(int var3 = 0; var3 < var2; ++var3) {
-                FoodType foodType = var1[var3];
-                if (foodType.code == code) {
-                    return foodType;
-                }
-            }
-
-            throw new IllegalArgumentException("No matching constant for " + FoodType.class.getSimpleName() + " code =" + code);
-        }
-    }
+//    DRINK(1,"İçki","Drink"),
+//    HOT_FOOD(2, "Isti yemekler","Hot food"),
+//    SNACK(3,"Qəlyanaltı","Snack"),
+//    BURGER(4,"BURGER","burger");
+//    private int code;
+//    private String nameAz;
+//    private String nameEn;
+//
+//    FoodType(int code, String nameAz, String nameEn) {
+//        this.code = code;
+//        this.nameAz = nameAz;
+//        this.nameEn = nameEn;
+//    }
+//
+//
+//
+//    public static Integer getCode(FoodType foodType) {
+//        return foodType == null ? null : foodType.code;
+//    }
+//    public static FoodType lookup(Integer code) {
+//        if (code == null) {
+//            return null;
+//        } else {
+//           FoodType[] var1 = values();
+//            int var2 = var1.length;
+//
+//            for(int var3 = 0; var3 < var2; ++var3) {
+//                FoodType foodType = var1[var3];
+//                if (foodType.code == code) {
+//                    return foodType;
+//                }
+//            }
+//
+//            throw new IllegalArgumentException("No matching constant for " + FoodType.class.getSimpleName() + " code =" + code);
+//        }
+//    }
 
 
 

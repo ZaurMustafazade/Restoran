@@ -1,6 +1,8 @@
 package com.example.restaurant.controller;
 
+import com.example.restaurant.entity.Menu;
 import com.example.restaurant.model.dto.MenuDto;
+import com.example.restaurant.model.enums.FoodType;
 import com.example.restaurant.service.MenuService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -46,4 +48,23 @@ public class MenuController {
     public void delete(@PathVariable("id") Long id) {
         menuService.delete(id);
     }
+
+/*    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
+    @GetMapping("/{foodType}")
+    public ResponseEntity<List<MenuDto>> findByFoodType(@PathVariable("foodType")FoodType foodType){
+        return ResponseEntity.ok(menuService.findByFoodType(foodType));
+    }*/
+
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
+    @GetMapping("/{foodType}")
+    public ResponseEntity<List<Menu>> findAllByFoodType(@PathVariable("foodType")FoodType foodType){
+        return ResponseEntity.ok(menuService.findAllByFootType(foodType));
+    }
+
+//    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
+//    @GetMapping("/{foodType}")
+//    public ResponseEntity<MenuDto> findMenuByFoodType(@PathVariable("foodType")FoodType foodType) {
+//        return ResponseEntity.ok(menuService.findMenuByFoodType(foodType));
+//    }
+
 }
