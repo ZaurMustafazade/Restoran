@@ -54,18 +54,9 @@ public class MenuService {
         );
         menuRepo.delete(menu);
     }
-/*
-    public  List<MenuDto> findByFoodType(FoodType foodType){
-        return menuRepo.findByFoodType(foodType);
-
-    }
-
-    public MenuDto findMenuByFoodType(FoodType foodType){
-        Menu menu = menuRepo.findMenuByFoodType(foodType);
-        return modelMapper.map(menuRepo.save(menu), MenuDto.class);
-    }*/
-
     public List<Menu> findAllByFootType(FoodType foodType){
         return menuRepo.findAllByFoodType(foodType);
+
     }
+
 }
