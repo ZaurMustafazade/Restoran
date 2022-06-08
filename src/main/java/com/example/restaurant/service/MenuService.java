@@ -3,6 +3,7 @@ package com.example.restaurant.service;
 import com.example.restaurant.model.dto.MenuDto;
 import com.example.restaurant.entity.Menu;
 import com.example.restaurant.exception.NotFoundException;
+import com.example.restaurant.model.enums.FoodType;
 import com.example.restaurant.repository.MenuRepo;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -28,7 +29,7 @@ public class MenuService {
         Menu menu = menuRepo.findById(id).orElseThrow(() -> new NotFoundException(
                 String.format("Menu not found with id - %s", id)
         ));
-        return modelMapper.map(menuRepo.save(menu), MenuDto.class);
+        return modelMapper.map(menu, MenuDto.class);
     }
 
     public MenuDto create(MenuDto menuDto) {
@@ -52,5 +53,19 @@ public class MenuService {
                 String.format("Menu not found with id - %s", id))
         );
         menuRepo.delete(menu);
+    }
+/*
+    public  List<MenuDto> findByFoodType(FoodType foodType){
+        return menuRepo.findByFoodType(foodType);
+
+    }
+
+    public MenuDto findMenuByFoodType(FoodType foodType){
+        Menu menu = menuRepo.findMenuByFoodType(foodType);
+        return modelMapper.map(menuRepo.save(menu), MenuDto.class);
+    }*/
+
+    public List<Menu> findAllByFootType(FoodType foodType){
+        return menuRepo.findAllByFoodType(foodType);
     }
 }
