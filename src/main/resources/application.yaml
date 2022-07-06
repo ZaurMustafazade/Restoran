@@ -1,4 +1,7 @@
 spring:
+  liquibase:
+    enabled: true
+    change-log: classpath*:/liquibase/changelog-master.xml
   datasource:
     url: jdbc:postgresql://localhost:5432/Restaurant
     username: postgres
@@ -10,7 +13,7 @@ spring:
     min-idle: 15
   jpa:
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       properties.hibernate.temp.use_jdbc_metadata_defaults: false
 #      hibernate:

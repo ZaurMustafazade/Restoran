@@ -1,7 +1,6 @@
 package com.example.restaurant.repository;
 
 import com.example.restaurant.entity.Menu;
-import com.example.restaurant.model.dto.MenuDto;
 import com.example.restaurant.model.enums.FoodType;
 import org.springframework.data.jpa.repository.JpaRepository;
 

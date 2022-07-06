@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="add_foreign_key_to_orders_menu" author="Zaur Mustafazade">
+
+        <addForeignKeyConstraint baseColumnNames="menu_id"
+                                 baseTableCatalogName="orders"
+                                 baseTableName="orders"
+                                 baseTableSchemaName="public"
+                                 constraintName="fk_orders_menus"
+                                 deferrable="true"
+                                 initiallyDeferred="true"
+                                 onDelete="CASCADE"
+                                 onUpdate="RESTRICT"
+                                 referencedColumnNames="id"
+                                 referencedTableCatalogName="menu"
+                                 referencedTableName="menu"
+                                 referencedTableSchemaName="public"
+                                 validate="true"/>
+    </changeSet>
+</databaseChangeLog>

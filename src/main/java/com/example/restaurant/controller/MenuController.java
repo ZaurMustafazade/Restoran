@@ -3,6 +3,7 @@ package com.example.restaurant.controller;
 import com.example.restaurant.entity.Menu;
 import com.example.restaurant.model.dto.MenuDto;
 import com.example.restaurant.model.enums.FoodType;
+import com.example.restaurant.model.view.MenuView;
 import com.example.restaurant.service.MenuService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
@@ -21,13 +22,13 @@ public class MenuController {
 
     @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_WAITER')")
     @GetMapping
-    public ResponseEntity<List<MenuDto>> findAll() {
+    public ResponseEntity<List<MenuView>> findAll() {
         return ResponseEntity.ok(menuService.getAll());
     }
 
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @GetMapping("/{id}")
-    public ResponseEntity<MenuDto> findById(@PathVariable("id") Long id) {
+    public ResponseEntity<MenuView> findById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(menuService.getById(id));
     }
 

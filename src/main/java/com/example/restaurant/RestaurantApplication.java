@@ -39,7 +39,7 @@ public class RestaurantApplication implements CommandLineRunner {
 //        client.setUsername("client");
 //        client.setPassword("client");
 //        client.setEmail("client@email.com");
-//        client.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_CLIENT)));
+//        client.setAppUserRoles(new ArrayList<AppUserRole>(Arrays.asList(AppUserRole.ROLE_WAITER)));
 //
 //        userService.signup(client);
     }
