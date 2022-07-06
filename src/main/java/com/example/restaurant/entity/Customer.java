@@ -10,15 +10,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Data
-@Table(name = "customers")
+@javax.persistence.Table(name = "customers")
 @Entity
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "table_id")
-    private Long tableId;
 
     @CreationTimestamp
     private LocalDateTime createdAt;
@@ -26,11 +23,14 @@ public class Customer {
     @Column(name = "is_active")
     private Boolean isActive;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinColumn(name = "customer_id")
+    private List<Orders> orders = new ArrayList<>();
+
     @ManyToOne
     @JsonIgnore
-    private Orders orders;
+    private Table table;
 
-    @OneToMany
-    @JoinColumn(name = "table_id")
-    private List<Tables> tables = new ArrayList<>();
+    public Customer() {
+    }
 }

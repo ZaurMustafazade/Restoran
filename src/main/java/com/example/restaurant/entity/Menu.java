@@ -4,10 +4,13 @@ import com.example.restaurant.model.enums.FoodType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import javax.persistence.Table;
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
-@Table(name = "menyu")
+@Table(name = "menu")
 @Entity
 public class Menu {
     @Id
@@ -25,9 +28,9 @@ public class Menu {
     private String info;
 
     @Column(name = "price")
-    private String price;
+    private Long price;
 
-    @ManyToOne
-    @JsonIgnore
-    private Orders orders;
+    @OneToMany
+    @JoinColumn(name = "menu_id")
+    private List<Orders> orders = new ArrayList<>();
 }

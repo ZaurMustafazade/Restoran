@@ -3,6 +3,7 @@ package com.example.restaurant.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
+import javax.persistence.Table;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,23 +16,21 @@ public class Orders {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "customer_id")
-    private Long customerId;
+    @ManyToOne
+    @JsonIgnore
+    private Menu menu;
 
-    @Column(name = "food_id")
-    private Long foodId;
+    @ManyToOne
+    @JsonIgnore
+    private Customer customer;
 
-    @Column(name = "count")
-    private Long count;
+    @Column(name = "amount")
+    private Long amount;
 
     @Column(name = "price")
     private Long price;
 
-    @OneToMany
-    @JoinColumn(name = "food_id")
-    private List<Menu> menus = new ArrayList<>();
-
-    @OneToMany
-    @JoinColumn(name = "customer_id")
-    private List<Customer> customers = new ArrayList<>();
+    public Long getPrice() {
+        return amount*menu.getPrice();
+    }
 }
